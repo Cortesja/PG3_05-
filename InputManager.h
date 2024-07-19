@@ -5,7 +5,6 @@ class InputManager
 {
 public:
 	ICommand* HandleInput();
-	ICommand* MoveLeftCommand();
 
 	void AssignMoveLeftCommand2PressKeyA();
 	void AssignMoveRightCommand2PressKeyD();

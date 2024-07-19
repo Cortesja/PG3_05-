@@ -15,6 +15,8 @@ public:
 	void MoveLeft();
 private:
 	Vector3 pos_ = {};
-	const float speed_ = 0.5f;
+	float width_ = 50.0f;
+	float height_ = 50.0f;
+	const float speed_ = 5.0f;
 };
 
