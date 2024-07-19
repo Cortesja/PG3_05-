@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "InputManager.h"
+
 //シーン名をEnumで定義
 enum Scene {
 	Title,
@@ -17,7 +18,7 @@ public:
 	virtual void Update(char *keys, char *preKeys) = 0;
 	virtual void Draw() = 0;
 
-	int GetSceneNum();
+	int GetSceneNum() { return sceneNum; }
 protected:
 	static int sceneNum;
 };
@@ -27,8 +28,7 @@ protected:
 //全ゲームシーン
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
-
-
+#pragma region TitleScene
 class TitleScene : public IScene
 {
 public:
@@ -36,24 +36,19 @@ public:
 	/// 
 	/// </summary>
 	void Initialize() override {
-		
-	}
-	/// <summary>
-	/// 
-	/// </summary>
-	void Update(char* keys, char* preKeys) override {
-		if (preKeys[DIK_SPACE] == 0 && keys[DIK_SPACE]) {
-			sceneNum = Stage;
-		}
-	}
-	/// <summary>
-	/// 
-	/// </summary>
-	void Draw() override {
-		Novice::ScreenPrintf(1280 / 2, 720 / 2, "Title");
-	}
-};
 
+	}
+	/// <summary>
+	/// 
+	/// </summary>
+	void Update(char* keys, char* preKeys) override;
+	/// <summary>
+	/// 
+	/// </summary>
+	void Draw() override;
+};
+#pragma endregion
+#pragma region StageScene
 class StageScene : public IScene
 {
 public:
@@ -66,19 +61,14 @@ public:
 	/// <summary>
 	/// 
 	/// </summary>
-	void Update(char* keys, char* preKeys) override {
-		if (preKeys[DIK_SPACE] == 0 && keys[DIK_SPACE]) {
-			sceneNum = Clear;
-		}
-	}	
+	void Update(char* keys, char* preKeys) override;
 	/// <summary>
 	/// 
 	/// </summary>
-	void Draw() override {
-		Novice::ScreenPrintf(1280 / 2, 720 / 2, "State");
-	}
+	void Draw() override;
 };
-
+#pragma endregion
+#pragma region ClearScene
 class ClearScene : public IScene
 {
 public:
@@ -91,15 +81,10 @@ public:
 	/// <summary>
 	/// 
 	/// </summary>
-	void Update(char *keys, char *preKeys) override {
-		if (preKeys[DIK_SPACE] == 0 && keys[DIK_SPACE]) {
-			sceneNum = Title;
-		}
-	}	
+	void Update(char* keys, char* preKeys) override;
 	/// <summary>
 	/// 
 	/// </summary>
-	void Draw() override {
-		Novice::ScreenPrintf(1280 / 2, 720 / 2, "Clear");
-	}
+	void Draw() override;
 };
+#pragma endregion
