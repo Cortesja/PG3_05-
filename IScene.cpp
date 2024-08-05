@@ -4,41 +4,22 @@
 int IScene::sceneNum = Title;
 
 void TitleScene::Initialize(){
-	delete inputHandler_;
-	delete player_;
-	//インスタンスを制作
-	inputHandler_ = new InputManager();
-
-	//AssignCommand
-	inputHandler_->AssignMoveLeftCommand2PressKeyA();
-	inputHandler_->AssignMoveRightCommand2PressKeyD();
-
-	//new player
-	player_ = new Player();
-	player_->Initialize();
 }
 
 void TitleScene::Update(char* keys, char* preKeys){
 	if (preKeys[DIK_SPACE] == 0 && keys[DIK_SPACE]) {
 		sceneNum = Stage;
 	}
-
-	//get input
-	iCommand_ = inputHandler_->HandleInput();
-	//set command
-	if (this->iCommand_) {
-		iCommand_->Exec(*player_);
-	}
 }
 
 void TitleScene::Draw() {
-	Novice::ScreenPrintf(1280 / 2, 720 / 2, "Title");
-	player_->Draw();
+	Novice::ScreenPrintf(1280 / 2, 200, "Title");
 }
 
 void StageScene::Initialize() {
 	delete inputHandler_;
 	delete player_;
+	delete iCommand_;
 	//インスタンスを制作
 	inputHandler_ = new InputManager();
 
@@ -65,39 +46,19 @@ void StageScene::Update(char* keys, char* preKeys) {
 }
 
 void StageScene::Draw() {
-	Novice::ScreenPrintf(1280 / 2, 720 / 2, "State");
+	Novice::ScreenPrintf(1280 / 2, 200, "Stage");
 	player_->Draw();
 }
 
 void ClearScene::Initialize() {
-	delete inputHandler_;
-	delete player_;
-	//インスタンスを制作
-	inputHandler_ = new InputManager();
-
-	//AssignCommand
-	inputHandler_->AssignMoveLeftCommand2PressKeyA();
-	inputHandler_->AssignMoveRightCommand2PressKeyD();
-
-	//new player
-	player_ = new Player();
-	player_->Initialize();
 }
 
 void ClearScene::Update(char* keys, char* preKeys) {
 	if (preKeys[DIK_SPACE] == 0 && keys[DIK_SPACE]) {
 		sceneNum = Title;
 	}
-
-	//get input
-	iCommand_ = inputHandler_->HandleInput();
-	//set command
-	if (this->iCommand_) {
-		iCommand_->Exec(*player_);
-	}
 }
 
 void ClearScene::Draw() {
-	Novice::ScreenPrintf(1280 / 2, 720 / 2, "Clear");
-	player_->Draw();
+	Novice::ScreenPrintf(1280 / 2, 200, "Clear");
 }

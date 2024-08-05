@@ -48,9 +48,6 @@ public:
 	/// </summary>
 	void Draw() override;
 private:
-	InputManager* inputHandler_ = nullptr;
-	ICommand* iCommand_ = nullptr;
-	Player* player_;
 };
 #pragma endregion
 #pragma region StageScene
@@ -92,8 +89,5 @@ public:
 	/// </summary>
 	void Draw() override;
 private:
-	InputManager* inputHandler_ = nullptr;
-	ICommand* iCommand_ = nullptr;
-	Player* player_;
 };
 #pragma endregion
