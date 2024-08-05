@@ -1,7 +1,11 @@
 ﻿#include "IScene.h"
 #include "Player.h"
 
+int IScene::sceneNum = Title;
+
 void TitleScene::Initialize(){
+	delete inputHandler_;
+	delete player_;
 	//インスタンスを制作
 	inputHandler_ = new InputManager();
 
@@ -14,10 +18,10 @@ void TitleScene::Initialize(){
 	player_->Initialize();
 }
 
-void TitleScene::Update(){
-	/*if (preKeys[DIK_SPACE] == 0 && keys[DIK_SPACE]) {
+void TitleScene::Update(char* keys, char* preKeys){
+	if (preKeys[DIK_SPACE] == 0 && keys[DIK_SPACE]) {
 		sceneNum = Stage;
-	}*/
+	}
 
 	//get input
 	iCommand_ = inputHandler_->HandleInput();
@@ -33,6 +37,8 @@ void TitleScene::Draw() {
 }
 
 void StageScene::Initialize() {
+	delete inputHandler_;
+	delete player_;
 	//インスタンスを制作
 	inputHandler_ = new InputManager();
 
@@ -45,10 +51,10 @@ void StageScene::Initialize() {
 	player_->Initialize();
 }
 
-void StageScene::Update() {
-	/*if (preKeys[DIK_SPACE] == 0 && keys[DIK_SPACE]) {
+void StageScene::Update(char* keys, char* preKeys) {
+	if (preKeys[DIK_SPACE] == 0 && keys[DIK_SPACE]) {
 		sceneNum = Clear;
-	}*/
+	}
 
 	//get input
 	iCommand_ = inputHandler_->HandleInput();
@@ -64,6 +70,8 @@ void StageScene::Draw() {
 }
 
 void ClearScene::Initialize() {
+	delete inputHandler_;
+	delete player_;
 	//インスタンスを制作
 	inputHandler_ = new InputManager();
 
@@ -76,10 +84,10 @@ void ClearScene::Initialize() {
 	player_->Initialize();
 }
 
-void ClearScene::Update() {
-	/*if (preKeys[DIK_SPACE] == 0 && keys[DIK_SPACE]) {
+void ClearScene::Update(char* keys, char* preKeys) {
+	if (preKeys[DIK_SPACE] == 0 && keys[DIK_SPACE]) {
 		sceneNum = Title;
-	}*/
+	}
 
 	//get input
 	iCommand_ = inputHandler_->HandleInput();

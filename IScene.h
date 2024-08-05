@@ -17,12 +17,12 @@ public:
 	virtual ~IScene() = default;
 	
 	virtual void Initialize() = 0;
-	virtual void Update() = 0;
+	virtual void Update(char* keys, char* preKeys) = 0;
 	virtual void Draw() = 0;
 
-	int GetSceneNum() { return sceneNum_; }
-private:
-	int sceneNum_;
+	int GetSceneNum() { return sceneNum; }
+protected:
+	static int sceneNum;
 };
 
 ////////////////////////////////////////////////
@@ -42,7 +42,7 @@ public:
 	/// <summary>
 	/// 
 	/// </summary>
-	void Update() override;
+	void Update(char* keys, char* preKeys) override;
 	/// <summary>
 	/// 
 	/// </summary>
@@ -64,7 +64,7 @@ public:
 	/// <summary>
 	/// 
 	/// </summary>
-	void Update() override;
+	void Update(char* keys, char* preKeys) override;
 	/// <summary>
 	/// 
 	/// </summary>
@@ -86,7 +86,7 @@ public:
 	/// <summary>
 	/// 
 	/// </summary>
-	void Update() override;
+	void Update(char* keys, char* preKeys) override;
 	/// <summary>
 	/// 
 	/// </summary>

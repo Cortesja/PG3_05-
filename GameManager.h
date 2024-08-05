@@ -37,6 +37,6 @@ private:
 	std::unique_ptr<IScene> sceneArr_[3];
 
 	int currentSceneNum_ = Title;
-	int prevSceneNum_;
+	int prevSceneNum_ = Title;
 };
 
