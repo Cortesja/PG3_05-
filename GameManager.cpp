@@ -36,12 +36,12 @@ void GameManager::Run(){
 
 void GameManager::Initialize(){
 	// ライブラリの初期化
-	Novice::Initialize(kWindowTitle_, kWindowWidth_, kWindowWidth_);
+	Novice::Initialize(kWindowTitle_, kWindowWidth_, kWindowHeight_);
 	sceneArr_[Title] = std::make_unique<TitleScene>();
 	sceneArr_[Stage] = std::make_unique<StageScene>();
 	sceneArr_[Clear] = std::make_unique<ClearScene>();
 
-	currentSceneNum_ = Title;
+	sceneArr_[currentSceneNum_]->Initialize();
 }
 
 void GameManager::Update(){

@@ -1,7 +1,7 @@
 ﻿#include "IScene.h"
 #include "Player.h"
 
-int IScene::sceneNum = Stage;
+int IScene::sceneNum = Title;
 
 void TitleScene::Initialize(){
 	//インスタンスを制作
