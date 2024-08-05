@@ -10,8 +10,6 @@ void Player::Initialize(){
 }
 
 void Player::Update(){
-	MoveRight();
-	MoveLeft();
 }
 
 void Player::Draw(){

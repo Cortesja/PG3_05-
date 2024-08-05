@@ -1,8 +1,6 @@
 ﻿#include "IScene.h"
 #include "Player.h"
 
-int IScene::sceneNum = Title;
-
 void TitleScene::Initialize(){
 	//インスタンスを制作
 	inputHandler_ = new InputManager();
@@ -27,8 +25,6 @@ void TitleScene::Update(){
 	if (this->iCommand_) {
 		iCommand_->Exec(*player_);
 	}
-
-	player_->Update();
 }
 
 void TitleScene::Draw() {
@@ -60,8 +56,6 @@ void StageScene::Update() {
 	if (this->iCommand_) {
 		iCommand_->Exec(*player_);
 	}
-
-	player_->Update();
 }
 
 void StageScene::Draw() {
@@ -93,8 +87,6 @@ void ClearScene::Update() {
 	if (this->iCommand_) {
 		iCommand_->Exec(*player_);
 	}
-
-	player_->Update();
 }
 
 void ClearScene::Draw() {
